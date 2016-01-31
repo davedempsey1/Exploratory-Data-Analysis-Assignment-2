@@ -39,3 +39,7 @@ ggplot(NEIBothCity, aes(x=year, y=Emissions, fill=city)) + geom_bar(aes(fill=yea
 #Vehicle source emissions appear to be overal much better in Baltimore
 #than in LA County where decreasing trend is also seen in Baltimore
 #that is not seen in LA County until 2005 on
+
+aggregateEmissions <- aggregate(Emissions~city+year, data=NEIBothCity, sum)
+aggregate(Emissions~city, data=aggregateEmissions, range)
+#LA County has seen the most changes though
